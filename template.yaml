@@ -1024,7 +1024,8 @@ Resources:
     Properties:
       DistributionConfig:
         Enabled: true
-        Comment: !If [ DeployApiGatewayHttp, !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${HttpApi}.execute-api.${AWS::Region}.amazonaws.com', !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${RestApi}.execute-api.${AWS::Region}.amazonaws.com' ]
+        #Comment: !If [ DeployApiGatewayHttp, !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${HttpApi}.execute-api.${AWS::Region}.amazonaws.com', !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${RestApi}.execute-api.${AWS::Region}.amazonaws.com' ]
+        Comment: !If [ DeployApiGatewayHttp, !Sub 'Personalization API CDN for ${HttpApi}.execute-api.${AWS::Region}.amazonaws.com', !Sub 'Personalization API CDN for ${RestApi}.execute-api.${AWS::Region}.amazonaws.com' ]
         PriceClass: PriceClass_200
         HttpVersion: http2
         Origins:
