@@ -29,3 +29,13 @@ parameter_overrides = "ApplicationName=\"P13n-APIs-noauth\" EnvironmentName=\"pr
 image_repositories = []
 resolve_s3 = true
 s3_prefix = "p13n-apis-noauth"
+
+[default.deploy.parameters]
+stack_name = "sam-recys-app"
+resolve_s3 = true
+s3_prefix = "sam-recys-app"
+region = "ap-south-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "ApplicationName=\"recys-appconfig\" EnvironmentName=\"dev\" TimeZone=\"EST\" AuthenticationScheme=\"ApiKey\" CreateCognitoResources=\"No\" ApiEntryPointType=\"API-Gateway-REST\" CacheScheme=\"API-Gateway-Cache\" GenerateConfigDatasetGroupNames=\"pigment_rec_context_group\" CreateSwaggerUI=\"Yes\""
+image_repositories = []

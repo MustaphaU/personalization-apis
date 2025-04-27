@@ -989,7 +989,7 @@ Resources:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
-        Comment: !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) cache policy (maintained by AppConfig validator)'
+        Comment: !Sub 'Cache policy for ${EnvironmentName} (${CacheScheme})'
         DefaultTTL: 10  # Managed by SyncCacheSettingsFunction when config is deployed
         MaxTTL: 3600  # Managed by SyncCacheSettingsFunction when config is deployed
         MinTTL: 2  # Managed by the SyncCacheSettingsFunction when config is deployed
@@ -1010,7 +1010,7 @@ Resources:
     Properties:
       OriginRequestPolicyConfig:
         Name: !Sub 'PersonalizationAPIs-${AWS::StackName}-${AWS::Region}'
-        Comment: !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) origin request policy (maintained by AppConfig validator)'
+        Comment: !Sub 'Origin request policy for ${EnvironmentName}'
         CookiesConfig:
           CookieBehavior: none
         HeadersConfig: # Managed by the SyncCacheSettingsFunction when config is deployed
@@ -1025,7 +1025,7 @@ Resources:
       DistributionConfig:
         Enabled: true
         #Comment: !If [ DeployApiGatewayHttp, !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${HttpApi}.execute-api.${AWS::Region}.amazonaws.com', !Sub 'Personalization API (${ApiEntryPointType}/${CacheScheme}/${EnvironmentName}) CDN for ${RestApi}.execute-api.${AWS::Region}.amazonaws.com' ]
-        Comment: !If [ DeployApiGatewayHttp, !Sub 'Personalization API CDN for ${HttpApi}.execute-api.${AWS::Region}.amazonaws.com', !Sub 'Personalization API CDN for ${RestApi}.execute-api.${AWS::Region}.amazonaws.com' ]
+        Comment: !If [ DeployApiGatewayHttp, !Sub 'CDN for ${HttpApi}', !Sub 'CDN for ${RestApi}' ]
         PriceClass: PriceClass_200
         HttpVersion: http2
         Origins:
