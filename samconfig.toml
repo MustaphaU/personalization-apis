@@ -31,11 +31,11 @@ resolve_s3 = true
 s3_prefix = "p13n-apis-noauth"
 
 [default.deploy.parameters]
-stack_name = "sam-recys-exp"
+stack_name = "app-sam-rec"
 resolve_s3 = true
-s3_prefix = "sam-recys-exp"
+s3_prefix = "app-sam-rec"
 region = "ap-south-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = "ApplicationName=\"recsys-appconf\" EnvironmentName=\"dev\" TimeZone=\"EST\" AuthenticationScheme=\"ApiKey\" CreateCognitoResources=\"No\" ApiEntryPointType=\"API-Gateway-REST\" CacheScheme=\"API-Gateway-Cache\" GenerateConfigDatasetGroupNames=\"pigment_rec_context_group\" CreateSwaggerUI=\"Yes\""
+parameter_overrides = "ApplicationName=\"recsys\" EnvironmentName=\"prod\" TimeZone=\"EST\" AuthenticationScheme=\"ApiKey\" CreateCognitoResources=\"No\" ApiEntryPointType=\"API-Gateway-REST\" CacheScheme=\"API-Gateway-Cache\" GenerateConfigDatasetGroupNames=\"pigment_rec_context_group\" CreateSwaggerUI=\"Yes\""
 image_repositories = []
